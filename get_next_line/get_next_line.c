@@ -6,7 +6,7 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:17:34 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/10 14:19:27 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/04/26 09:25:32 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_gnl_aux(int fd, char *str)
 		if (read_bytes == -1)
 		{
 			free(buffer);
+			free(str);
 			return (NULL);
 		}
 		buffer[read_bytes] = '\0';
@@ -51,11 +52,6 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_getfirst_line(str);
 	str = ft_new_str(str);
-	if (!str && !line)
-	{
-		free(str);
-		return (NULL);
-	}
 	return (line);
 }
 /*

@@ -6,7 +6,7 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:18:05 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/10 14:23:17 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/04/26 09:24:42 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char	*ft_strjoin(char *new_str, char *buff)
 	if (!new_str)
 	{
 		new_str = (char *)malloc(1 * sizeof(char));
+		if (!new_str)
+			return (NULL);
 		new_str[0] = '\0';
 	}
 	if (!new_str || !buff)
@@ -65,8 +67,6 @@ char	*ft_strjoin(char *new_str, char *buff)
 		str[i++] = buff[j++];
 	str[ft_strlen(new_str) + ft_strlen(buff)] = '\0';
 	free(new_str);
-	if (!str)
-		return (NULL);
 	return (str);
 }
 
@@ -112,7 +112,7 @@ char	*ft_new_str(char *new_str)
 		free(new_str);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(new_str) - i));
+	str = malloc(sizeof(char) * (ft_strlen(new_str) - i + 1));
 	if (!str)
 		return (NULL);
 	i++;

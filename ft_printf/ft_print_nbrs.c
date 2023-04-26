@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_nbrs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 09:19:23 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/26 10:34:04 by srocha-r         ###   ########.fr       */
+/*   Created: 2023/04/26 10:28:10 by srocha-r          #+#    #+#             */
+/*   Updated: 2023/04/26 10:33:46 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-int		ft_printf(char const *format, ...);
-int		ft_print_int(va_list args);
-void	ft_printchar(char c);
-void	ft_printstr(char *str);
+int	ft_print_int(va_list args)
+{
+	int	num;
+	int	len;
 
-#endif
+	num = va_arg(args, int);
+	len = ft_numlen(num);
+	ft_putnbr(num);
+	return (len);
+}

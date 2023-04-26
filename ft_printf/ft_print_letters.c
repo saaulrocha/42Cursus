@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_letters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 09:19:23 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/26 10:34:04 by srocha-r         ###   ########.fr       */
+/*   Created: 2023/04/26 10:27:46 by srocha-r          #+#    #+#             */
+/*   Updated: 2023/04/26 10:34:32 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-int		ft_printf(char const *format, ...);
-int		ft_print_int(va_list args);
-void	ft_printchar(char c);
-void	ft_printstr(char *str);
+void    ft_printchar(char c)
+{
+    write(1, &c, 1);
+}
 
-#endif
+void	ft_printstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_printchar(str[i]);
+		i++;
+	}
+}

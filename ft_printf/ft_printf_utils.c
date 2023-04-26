@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 09:19:23 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/26 10:34:04 by srocha-r         ###   ########.fr       */
+/*   Created: 2023/04/26 10:04:49 by srocha-r          #+#    #+#             */
+/*   Updated: 2023/04/26 10:34:12 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-int		ft_printf(char const *format, ...);
-int		ft_print_int(va_list args);
-void	ft_printchar(char c);
-void	ft_printstr(char *str);
+int	ft_putnbr(int n)
+{
+	int	len;
 
-#endif
+	len = 0;
+	if (n == -2147483648)
+	{
+		ft_printstr("-2147483648");
+		return (11);
+	}
+	if (n < 0)
+	{
+		ft_printchar('-');
+		n = n * -1;
+		len++;
+	}
+	if (n >= 10)
+	{
+		len += ft_putnbr(n / 10);
+		len += ft_putnbr(n % 10);
+	}
+	else
+	{
+		ft_printchar(n + '0');
+		len++;
+	}
+	return (len);
+}
