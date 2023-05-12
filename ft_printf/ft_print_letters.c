@@ -6,18 +6,19 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:27:46 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/26 10:34:32 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:30:15 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_printchar(char c)
+int	ft_printchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
+	return (1);
 }
 
-void	ft_printstr(char *str)
+void	ft_putstr(char *str)
 {
 	int	i;
 
@@ -27,4 +28,21 @@ void	ft_printstr(char *str)
 		ft_printchar(str[i]);
 		i++;
 	}
+}
+int ft_printstr(char *str)
+{
+	int i;
+
+	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 10:17:34 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/26 09:25:32 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:29:05 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,15 @@ int	main(void)
     fd = open("read_error.txt", O_RDONLY);
     line = get_next_line(fd);
     printf("%s", line);
+	line = get_next_line(fd);
+	printf("%s", line);
+	line = get_next_line(fd);
+	printf("%s", line);
+	line = get_next_line(fd);
+	printf("%s", line);
+	line = get_next_line(fd);
+	printf("%s", line);
     return (0);
 }
 */
+

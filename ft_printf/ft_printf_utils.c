@@ -6,11 +6,17 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 10:04:49 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/26 10:34:12 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:34:30 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int ft_print_perc()
+{
+	write(1, "%", 1);
+	return (1);
+}
 
 int	ft_putnbr(int n)
 {

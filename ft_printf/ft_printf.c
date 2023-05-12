@@ -6,26 +6,27 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:23:49 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/04/26 10:32:36 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/05/12 12:35:39 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_parse_flags(char const *format, int *i, va_list args)
+char	ft_parse_flags(const char format, va_list args)
 {
-	char	flag;
+	int	len;
 
-	flag = format[*i];
-	if (flag == 'c')
-		ft_printchar(args);
-	else if (flag == 's')
-		ft_printstring(args);
-	else if (flag == 'd' || flag == 'i')
-		ft_print_int(args);
+	len = 0;
+	if (format == 'c')
+		len += ft_printchar(va_arg(args, int));
+	else if (format == 's')
+		len += ft_printstr(va_arg(args, char *));
+	else if (format == '%')
+		len += ft_print_perc();
+	return (len);
 }
 
-int	ft_printf(char const *format, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list	args;
 	int		i;
@@ -33,17 +34,17 @@ int	ft_printf(char const *format, ...)
 
 	i = 0;
 	len = 0;
-	va_start(args, format);
-	while (format[i] != '\0')
+	va_start(args, str);
+	while (str[i])
 	{
-		if (format[i] == '%')
+		if (str[i] == '%')
 		{
+			len += ft_parse_flags(str[i + 1], args);
 			i++;
-			len += ft_parse_flags(format, &i, args);
 		}
 		else
 		{
-			ft_printchar(format[i]);
+			len += ft_printchar(str[i]);
 			len++;
 		}
 		i++;

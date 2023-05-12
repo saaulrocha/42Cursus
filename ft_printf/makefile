@@ -6,7 +6,7 @@
 #    By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 09:17:11 by srocha-r          #+#    #+#              #
-#    Updated: 2023/03/29 09:18:16 by srocha-r         ###   ########.fr        #
+#    Updated: 2023/05/12 12:36:37 by srocha-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ NAME = libftprintf.a
 SRC =	ft_printf.c
 
 OBJ = $(SRC:.c=.o)
-INCLUDE = ft_prinf.h
+INCLUDE = ft_printf.h
 
 all: $(NAME)
 
