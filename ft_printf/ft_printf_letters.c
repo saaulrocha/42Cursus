@@ -1,25 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_letters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 09:19:23 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/05/17 10:54:28 by srocha-r         ###   ########.fr       */
+/*   Created: 2023/04/26 10:27:46 by srocha-r          #+#    #+#             */
+/*   Updated: 2023/05/17 10:29:25 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+#include "ft_printf.h"
 
-int		ft_printf(char const *format, ...);
-int		ft_printchar(char c);
-int		ft_printstr(char *str);
-int		ft_print_perc(void);
-int		ft_unsign_print(unsigned int n);
-int		ft_hexa_print(unsigned int number, const char format);
-#endif
+int	ft_printchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		ft_printchar(str[i]);
+		i++;
+	}
+}
+
+int	ft_printstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
+}
