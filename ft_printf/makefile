@@ -6,7 +6,7 @@
 #    By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 09:17:11 by srocha-r          #+#    #+#              #
-#    Updated: 2023/05/17 10:53:59 by srocha-r         ###   ########.fr        #
+#    Updated: 2023/05/24 13:39:34 by srocha-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CCFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 SRC =	ft_printf.c ft_printf_utils.c ft_printf_unsigned.c ft_printf_letters.c\
-ft_printf_hex.c
+ft_printf_hex.c ft_printf_ptr.c
 
 OBJ = $(SRC:.c=.o)
 INCLUDE = ft_printf.h
