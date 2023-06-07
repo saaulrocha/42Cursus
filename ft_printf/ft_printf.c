@@ -6,7 +6,7 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:23:49 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/05/17 10:49:59 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/05/29 10:28:40 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,14 @@ char	ft_parse_flags(const char format, va_list args)
 		len += ft_printstr(va_arg(args, char *));
 	else if (format == '%')
 		len += ft_print_perc();
+	else if (format == 'd' || format == 'i')
+		len += ft_printnumber(va_arg(args, int));
 	else if (format == 'u')
 		len += ft_unsign_print(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')
 		len += ft_hexa_print(va_arg(args, unsigned int), format);
+	else if (format == 'p')
+		len += ft_print_ptr(va_arg(args, unsigned long long));
 	return (len);
 }
 

@@ -6,17 +6,11 @@
 /*   By: srocha-r <srocha-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 10:31:53 by srocha-r          #+#    #+#             */
-/*   Updated: 2023/05/17 10:55:37 by srocha-r         ###   ########.fr       */
+/*   Updated: 2023/05/29 10:14:50 by srocha-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_putchar_fd(char c, int fd)
-{
-	if (fd)
-		write(fd, &c, 1);
-}
 
 int	ft_length_hex(unsigned int number)
 {
